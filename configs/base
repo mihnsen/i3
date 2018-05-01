@@ -332,14 +332,14 @@ bindsym $mod+F4 exec --no-startup-id exec ~/.swissknife/i3/i3companion/toggle_bl
 
 
 assign [class="^(Skype|Slack)$"] 10
-assign [class="^(VirtualBox|Thunderbird|Blueman)$"] 8
+assign [class="^(VirtualBox|Thunderbird)$"] 8
 
 ##################################################:############ exec section ###
 exec --no-startup-id fcitx
 exec --no-startup-id rescuetime
 #exec --no-startup-id nm-applet
 #exec --no-startup-id slack
-exec --no-startup-id blueman-applet
+#exec --no-startup-id blueman-applet
 exec --no-startup-id i3pystatus > ~/i3pystatus.log
 exec --no-startup-id feh --bg-fill ~/.swissknife/i3/torvalds-quote.jpg
 
