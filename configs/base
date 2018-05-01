@@ -171,7 +171,7 @@ mode "i3 keys released! $mod+Control+t to re-grab" {
 bindsym $mod+Control+t mode "i3 keys released! $mod+Control+t to re-grab"
 
 # Ian's extras
-set $lock exec --no-startup-id exec i3lock --dpms -i ~/.config/i3/desktop.png
+set $lock exec --no-startup-id exec i3lock --dpms -i ~/.swissknife/i3/desktop.png
 # set $lock exec --no-startup-id exec lock
 
 # i3 BUG FIXME: Variables within variables appear to be expanded to an empty string
@@ -293,7 +293,7 @@ bindsym $mod+Shift+Tab move workspace to output right
 bindsym $mod+Control+Tab move workspace to output down
 
 # -key, -mod and -history_key seem to be ignored from the command line. They
-# are set in ~/.config/dunstrc (besides which, exclusively doing it here is
+# are set in ~/.swissknife/dunstrc (besides which, exclusively doing it here is
 # racey since dunst can be automatically started by dbus)
 # exec --no-startup-id dunst -fn "$font" -geometry +0-0 -mod $mod -key period -history_key comma
 exec --no-startup-id exec dunst
@@ -302,7 +302,7 @@ exec --no-startup-id exec dunst
 # complicated keybindings (mixer, music controls, etc). I intend to
 # move most of the bindings into it leaving only bindings that are
 # directly related to i3 in this config file:
-exec --no-startup-id exec ~/.config/i3/i3companion/i3companion.py
+exec --no-startup-id exec ~/.swissknife/i3/i3companion/i3companion.py
 
 # This redirects ReceivedChatMsg and RecievedImMsg from libpurple clients
 # running the "DBus Example" plugin to libnotify. This is particularly useful
@@ -310,7 +310,7 @@ exec --no-startup-id exec ~/.config/i3/i3companion/i3companion.py
 # purple-libnotify+ did not seem particularly stable (crashes Finch) for me.
 # Once i3companion has proper config parsing I'll start this from
 # inside i3companion rather than here.
-exec --no-startup-id exec ~/.config/i3/i3companion/purple.py
+exec --no-startup-id exec ~/.swissknife/i3/i3companion/purple.py
 
 # Force the display off. For some reason, i3 seems to change which window is
 # focussed when the display is turned off (or on?) - this also happens when
@@ -318,7 +318,7 @@ exec --no-startup-id exec ~/.config/i3/i3companion/purple.py
 bindsym $mod+F3 exec --no-startup-id exec xset dpms force suspend
 
 # Toggle screensaver + DPMS
-bindsym $mod+F4 exec --no-startup-id exec ~/.config/i3/i3companion/toggle_blanking.sh
+bindsym $mod+F4 exec --no-startup-id exec ~/.swissknife/i3/i3companion/toggle_blanking.sh
 
 # Misc TODO:
 # - xautolock [ -toggle ]
@@ -332,16 +332,16 @@ bindsym $mod+F4 exec --no-startup-id exec ~/.config/i3/i3companion/toggle_blanki
 
 
 assign [class="^(Skype|Slack)$"] 10
-assign [class="^VirtualBox$"] 8
-assign [class="^Thunderbird$"] 8
+assign [class="^(VirtualBox|Thunderbird|Blueman)$"] 8
 
 ##################################################:############ exec section ###
 exec --no-startup-id fcitx
 exec --no-startup-id rescuetime
 #exec --no-startup-id nm-applet
-exec --no-startup-id slack
-exec --no-startup-id i3pystatus > ~/i3pystatus.log 
-exec --no-startup-id feh --bg-fill ~/.config/i3/torvalds-quote.jpg
+#exec --no-startup-id slack
+exec --no-startup-id blueman-applet
+exec --no-startup-id i3pystatus > ~/i3pystatus.log
+exec --no-startup-id feh --bg-fill ~/.swissknife/i3/torvalds-quote.jpg
 
 
 # New config
@@ -355,7 +355,7 @@ focus_follows_mouse no
 hide_edge_borders both
 
 # Custom KeyBinds
-# bindsym Control+mod1+l exec sh ~/.config/i3/i3lock.sh
+# bindsym Control+mod1+l exec sh ~/.swissknife/i3/i3lock.sh
 bindsym Print exec scrot '%Y-%m-%d-%H-%M-%S_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/$f'
 bindsym --release Shift+Print exec scrot -s '%Y-%m-%d-%H-%M-%S_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/ && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/$f'
 bindsym $mod+Shift+p exec i3lock
